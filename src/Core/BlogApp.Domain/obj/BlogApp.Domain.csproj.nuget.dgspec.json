@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Domain\\BlogApp.Domain.csproj": {}
+    "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Domain\\BlogApp.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Domain\\BlogApp.Domain.csproj": {
+    "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Domain\\BlogApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Domain\\BlogApp.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Domain\\BlogApp.Domain.csproj",
         "projectName": "BlogApp.Domain",
-        "projectPath": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Domain\\BlogApp.Domain.csproj",
+        "projectPath": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Domain\\BlogApp.Domain.csproj",
         "packagesPath": "C:\\Users\\Hulusi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

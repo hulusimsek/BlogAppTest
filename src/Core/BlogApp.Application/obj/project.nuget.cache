@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4MwdGAnY67A=",
+  "dgSpecHash": "Z0bJkVyYH8Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Application\\BlogApp.Application.csproj",
+  "projectFilePath": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Application\\BlogApp.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hulusi\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Hulusi\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",

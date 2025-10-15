@@ -1,50 +1,52 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\",
+  "WorkspaceRootPath": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07822349-3159-4F11-8699-736F49DAE628}|src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj|c:\\users\\hulusi\\desktop\\blogapp\\blogapp\\src\\presentation\\blogapp.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{07822349-3159-4F11-8699-736F49DAE628}|src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj|c:\\users\\hulusi\\desktop\\blogapptest\\src\\presentation\\blogapp.webapi\\blogapp.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{07822349-3159-4F11-8699-736F49DAE628}|src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj|solutionrelative:src\\presentation\\blogapp.webapi\\blogapp.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07822349-3159-4F11-8699-736F49DAE628}|src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj|c:\\users\\hulusi\\desktop\\blogapptest\\src\\presentation\\blogapp.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07822349-3159-4F11-8699-736F49DAE628}|src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj|solutionrelative:src\\presentation\\blogapp.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBE1C968-28A7-4A23-BCF2-F725585AB0F9}|src\\Infrastructure\\BlogApp.Persistence\\BlogApp.Persistence.csproj|c:\\users\\hulusi\\desktop\\blogapp\\blogapp\\src\\infrastructure\\blogapp.persistence\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CBE1C968-28A7-4A23-BCF2-F725585AB0F9}|src\\Infrastructure\\BlogApp.Persistence\\BlogApp.Persistence.csproj|c:\\users\\hulusi\\desktop\\blogapptest\\src\\infrastructure\\blogapp.persistence\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBE1C968-28A7-4A23-BCF2-F725585AB0F9}|src\\Infrastructure\\BlogApp.Persistence\\BlogApp.Persistence.csproj|solutionrelative:src\\infrastructure\\blogapp.persistence\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBE1C968-28A7-4A23-BCF2-F725585AB0F9}|src\\Infrastructure\\BlogApp.Persistence\\BlogApp.Persistence.csproj|c:\\users\\hulusi\\desktop\\blogapp\\blogapp\\src\\infrastructure\\blogapp.persistence\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CBE1C968-28A7-4A23-BCF2-F725585AB0F9}|src\\Infrastructure\\BlogApp.Persistence\\BlogApp.Persistence.csproj|c:\\users\\hulusi\\desktop\\blogapptest\\src\\infrastructure\\blogapp.persistence\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBE1C968-28A7-4A23-BCF2-F725585AB0F9}|src\\Infrastructure\\BlogApp.Persistence\\BlogApp.Persistence.csproj|solutionrelative:src\\infrastructure\\blogapp.persistence\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBE1C968-28A7-4A23-BCF2-F725585AB0F9}|src\\Infrastructure\\BlogApp.Persistence\\BlogApp.Persistence.csproj|c:\\users\\hulusi\\desktop\\blogapp\\blogapp\\src\\infrastructure\\blogapp.persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CBE1C968-28A7-4A23-BCF2-F725585AB0F9}|src\\Infrastructure\\BlogApp.Persistence\\BlogApp.Persistence.csproj|c:\\users\\hulusi\\desktop\\blogapptest\\src\\infrastructure\\blogapp.persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBE1C968-28A7-4A23-BCF2-F725585AB0F9}|src\\Infrastructure\\BlogApp.Persistence\\BlogApp.Persistence.csproj|solutionrelative:src\\infrastructure\\blogapp.persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|c:\\users\\hulusi\\desktop\\blogapp\\blogapp\\src\\core\\blogapp.application\\interfaces\\persistence\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|c:\\users\\hulusi\\desktop\\blogapptest\\src\\core\\blogapp.application\\interfaces\\persistence\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|solutionrelative:src\\core\\blogapp.application\\interfaces\\persistence\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07822349-3159-4F11-8699-736F49DAE628}|src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj|c:\\users\\hulusi\\desktop\\blogapp\\blogapp\\src\\presentation\\blogapp.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{07822349-3159-4F11-8699-736F49DAE628}|src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj|c:\\users\\hulusi\\desktop\\blogapptest\\src\\presentation\\blogapp.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07822349-3159-4F11-8699-736F49DAE628}|src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj|solutionrelative:src\\presentation\\blogapp.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|c:\\users\\hulusi\\desktop\\blogapp\\blogapp\\src\\core\\blogapp.application\\features\\auth\\commands\\login\\logincommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|c:\\users\\hulusi\\desktop\\blogapptest\\src\\core\\blogapp.application\\features\\auth\\commands\\login\\logincommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|solutionrelative:src\\core\\blogapp.application\\features\\auth\\commands\\login\\logincommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|c:\\users\\hulusi\\desktop\\blogapp\\blogapp\\src\\core\\blogapp.application\\features\\auth\\commands\\login\\logincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|c:\\users\\hulusi\\desktop\\blogapptest\\src\\core\\blogapp.application\\features\\auth\\commands\\login\\logincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|solutionrelative:src\\core\\blogapp.application\\features\\auth\\commands\\login\\logincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|c:\\users\\hulusi\\desktop\\blogapp\\blogapp\\src\\core\\blogapp.application\\features\\auth\\commands\\login\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|c:\\users\\hulusi\\desktop\\blogapptest\\src\\core\\blogapp.application\\features\\auth\\commands\\login\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1A1A3F1-5B5F-4F5F-8F8F-1F1F1F1F1F1F}|src\\Core\\BlogApp.Application\\BlogApp.Application.csproj|solutionrelative:src\\core\\blogapp.application\\features\\auth\\commands\\login\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\DependencyInjection\\ServiceRegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BlogApp.Infrastructure\\DependencyInjection\\ServiceRegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\DependencyInjection\\ServiceRegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\Services\\AuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BlogApp.Infrastructure\\Services\\AuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\Services\\AuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,52 +56,65 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1572,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
+              "Title": "BlogApp.WebAPI",
+              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj",
+              "RelativeDocumentMoniker": "src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj",
+              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj*",
+              "RelativeToolTip": "src\\Presentation\\BlogApp.WebAPI\\BlogApp.WebAPI.csproj*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-15T14:15:02.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "ServiceRegistration.cs",
               "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\DependencyInjection\\ServiceRegistration.cs",
-              "RelativeDocumentMoniker": "BlogApp.Infrastructure\\DependencyInjection\\ServiceRegistration.cs",
+              "RelativeDocumentMoniker": "..\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\DependencyInjection\\ServiceRegistration.cs",
               "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\DependencyInjection\\ServiceRegistration.cs",
-              "RelativeToolTip": "BlogApp.Infrastructure\\DependencyInjection\\ServiceRegistration.cs",
+              "RelativeToolTip": "..\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\DependencyInjection\\ServiceRegistration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T12:06:36.734Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Presentation\\BlogApp.WebAPI\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Presentation\\BlogApp.WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "src\\Presentation\\BlogApp.WebAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Presentation\\BlogApp.WebAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Presentation\\BlogApp.WebAPI\\Program.cs",
               "RelativeToolTip": "src\\Presentation\\BlogApp.WebAPI\\Program.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAADgAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAEoAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T12:04:07.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "BlogApp.Infrastructure\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "..\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\Services\\AuthService.cs",
               "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\Services\\AuthService.cs",
-              "RelativeToolTip": "BlogApp.Infrastructure\\Services\\AuthService.cs",
+              "RelativeToolTip": "..\\BlogApp\\BlogApp\\BlogApp.Infrastructure\\Services\\AuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T11:59:08.102Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UnitOfWork.cs",
-              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UnitOfWork.cs",
+              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UnitOfWork.cs",
               "RelativeToolTip": "src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UnitOfWork.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -107,11 +122,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Application\\Interfaces\\Persistence\\IUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Application\\Interfaces\\Persistence\\IUnitOfWork.cs",
               "RelativeDocumentMoniker": "src\\Core\\BlogApp.Application\\Interfaces\\Persistence\\IUnitOfWork.cs",
-              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Application\\Interfaces\\Persistence\\IUnitOfWork.cs",
+              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Application\\Interfaces\\Persistence\\IUnitOfWork.cs",
               "RelativeToolTip": "src\\Core\\BlogApp.Application\\Interfaces\\Persistence\\IUnitOfWork.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -119,11 +134,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Presentation\\BlogApp.WebAPI\\Controllers\\AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Presentation\\BlogApp.WebAPI\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "src\\Presentation\\BlogApp.WebAPI\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Presentation\\BlogApp.WebAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Presentation\\BlogApp.WebAPI\\Controllers\\AuthController.cs",
               "RelativeToolTip": "src\\Presentation\\BlogApp.WebAPI\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAACYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -131,11 +146,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "LoginCommand.cs",
-              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommand.cs",
               "RelativeDocumentMoniker": "src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommand.cs",
-              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommand.cs",
+              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommand.cs",
               "RelativeToolTip": "src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -143,11 +158,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "LoginCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandHandler.cs",
               "RelativeDocumentMoniker": "src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandHandler.cs",
-              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandHandler.cs",
+              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandHandler.cs",
               "RelativeToolTip": "src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -155,11 +170,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "LoginCommandValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandValidator.cs",
+              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandValidator.cs",
               "RelativeDocumentMoniker": "src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandValidator.cs",
-              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandValidator.cs",
+              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandValidator.cs",
               "RelativeToolTip": "src\\Core\\BlogApp.Application\\Features\\Auth\\Commands\\Login\\LoginCommandValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -167,11 +182,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UserRepository.cs",
               "RelativeToolTip": "src\\Infrastructure\\BlogApp.Persistence\\Repositories\\UserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -179,11 +194,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "RoleRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\RoleRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\RoleRepository.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\BlogApp.Persistence\\Repositories\\RoleRepository.cs",
-              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogApp\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\RoleRepository.cs",
+              "ToolTip": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Infrastructure\\BlogApp.Persistence\\Repositories\\RoleRepository.cs",
               "RelativeToolTip": "src\\Infrastructure\\BlogApp.Persistence\\Repositories\\RoleRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
