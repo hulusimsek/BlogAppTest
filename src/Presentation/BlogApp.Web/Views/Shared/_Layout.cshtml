@@ -1,0 +1,158 @@
+﻿@using BlogApp.Application.DTOs.SiteSettings
+@inject Microsoft.Extensions.Caching.Memory.IMemoryCache Cache
+@{
+    // Cache veya Service üzerinden site ayarları alınabilir
+
+    var pageTitle = ViewData["Title"]?.ToString() ?? "";
+
+    string? metaDescription = ViewData["MetaDescription"]?.ToString();
+    string? metaKeywords = ViewData["MetaKeywords"]?.ToString();
+
+    // Dinamik başlık ve açıklama fallback'leri
+    var pageUrl = Context.Request.Scheme + "://" + Context.Request.Host + Context.Request.Path;
+
+    var robotsMeta = ViewData["Robots"]?.ToString() ?? "index, follow";
+
+}
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Html.Raw(ViewData["Title"])</title>
+
+    <meta name="title" content="@pageTitle" />
+
+    <meta name="description" content="@metaDescription" />
+
+    <meta name="robots" content="@robotsMeta" />
+
+    <link rel="manifest" href="~/site.webmanifest">
+    <meta name="theme-color" content="#003366">
+
+
+    @await Component.InvokeAsync("SEO", new { section = "Meta", _title = pageTitle, _description = metaDescription, _keywords = metaKeywords })
+    @await Component.InvokeAsync("SEO", new { section = "JsonLd" })
+
+
+    <!-- Tailwind CSS with preload -->
+
+    <link rel="preload" href="~/css/tailwind.css" asp-append-version="true" as="style">
+    <link rel="stylesheet" href="~/css/tailwind.css" asp-append-version="true">
+
+
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="~/css/fonts.css" />
+
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+
+        :root {
+            --header-height: 70px;
+        }
+        .sticky-breadcrumb {
+            position: sticky;
+            top: var(--header-height);
+            z-index: 30;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#003366",
+                        "primary-dark": "#001f3f",
+                        "accent-gray": "#6c757d",
+                        "background-light": "#f4f4f4",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        display: ["Open Sans", "sans-serif"],
+                    },
+                }
+            }
+        };
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    @RenderSection("Styles", required: false)
+</head>
+<body class="bg-white dark:bg-background-dark font-display">
+
+    <!-- Skip to main content - Accessibility & SEO -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white">
+        Ana içeriğe atla
+    </a>
+
+
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Header -->
+            @await Component.InvokeAsync("SiteInfo", new { section = "Header" })
+
+            <div class="sticky top-[70px] z-30 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+                @await Component.InvokeAsync("Breadcrumb")
+            </div>
+
+
+            <!-- Layout veya sayfa başında yerleştirebilirsin -->
+            <div class="fixed top-5 inset-x-0 z-50 flex justify-center pointer-events-none">
+                <div class="w-full max-w-xl px-4">
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="pointer-events-auto flex items-center justify-between bg-green-100 dark:bg-green-900 border border-green-300 dark:border-green-700 text-green-800 dark:text-green-200 rounded-xl shadow-lg p-4 mb-2 transition-all duration-300 animate-slide-down">
+                            <div class="flex items-center gap-3">
+                                <span> @TempData["SuccessMessage"]</span>
+                            </div>
+                            <button type="button" class="ml-4 text-green-800 dark:text-green-200 hover:text-green-900 dark:hover:text-green-100" onclick="this.parentElement.remove()">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    }
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div class="pointer-events-auto flex items-center justify-between bg-red-100 dark:bg-red-900 border border-red-300 dark:border-red-700 text-red-800 dark:text-red-200 rounded-xl shadow-lg p-4 mb-2 transition-all duration-300 animate-slide-down">
+                            <div class="flex items-center gap-3">
+                                <span>@Html.Raw(TempData["ErrorMessage"])</span>
+                            </div>
+                            <button type="button" class="ml-4 text-red-800 dark:text-red-200 hover:text-red-900 dark:hover:text-red-100" onclick="this.parentElement.remove()">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+            <main class="flex-1">
+                @RenderBody()
+            </main>
+
+            <!-- Footer -->
+            @await Component.InvokeAsync("SiteInfo", new { section = "Footer" })
+        </div>
+    </div>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/header.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

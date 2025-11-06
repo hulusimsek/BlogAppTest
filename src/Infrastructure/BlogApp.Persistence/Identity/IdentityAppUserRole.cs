@@ -12,8 +12,8 @@ namespace BlogApp.Persistence.Identity
     {
         public DateTime AssignedDate { get; set; }
 
-        public virtual IdentityAppUser User { get; set; } = null!;
-        public virtual IdentityAppRole Role { get; set; } = null!;
+        public IdentityAppUser User { get; set; } = null!;
+        public IdentityAppRole Role { get; set; } = null!;
         public IdentityAppUserRole()
         {
             AssignedDate = DateTime.UtcNow;

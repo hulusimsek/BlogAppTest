@@ -11,7 +11,7 @@ public class AppRole
     public DateTime CreatedDate { get; private set; }
 
     // Navigation properties
-    public virtual ICollection<AppUserRole> UserRoles { get; private set; } = new List<AppUserRole>();
+    public ICollection<AppUserRole> UserRoles { get; private set; } = new List<AppUserRole>();
 
     // Private constructor for EF Core
     private AppRole() { }

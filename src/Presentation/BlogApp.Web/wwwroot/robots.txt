@@ -1,0 +1,67 @@
+﻿# ======================================
+# BlogApp Robots.txt
+# Yazar: ChatGPT SEO Asistanı
+# Açıklama: Bu dosya arama motorlarına sitenin hangi bölümlerini tarayabileceklerini bildirir.
+# ======================================
+
+User-agent: *
+# 🔒 Admin paneli, kimlik doğrulama ve sistem sayfalarını engelle
+Disallow: /admin/
+Disallow: /Admin/
+Disallow: /account/
+Disallow: /Account/
+Disallow: /Identity/
+Disallow: /signin
+Disallow: /signup
+Disallow: /login
+Disallow: /logout
+
+# ⚙️ Teknik dosyalar veya özel endpoint'ler
+Disallow: /error/
+Disallow: /api/
+Disallow: /_content/
+Disallow: /css/
+Disallow: /js/
+Disallow: /lib/
+Disallow: /node_modules/
+
+# 🟢 Aşağıdaki bölümler indekslenebilir
+Allow: /blog/
+Allow: /hizmetler/
+Allow: /hakkimizda
+Allow: /iletisim
+
+# 📍 Gecikme süresi (botun sunucunu yormaması için)
+Crawl-delay: 10
+
+# 🌐 Site haritası (otomatik oluşturulan)
+Sitemap: https://www.sitenadi.com/sitemap.xml
+
+# ======================================
+# Ek yönergeler
+# ======================================
+# Google botları için özel yönergeler
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+
+# Bing botları için özel yönergeler
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+
+# Resim botları
+User-agent: Googlebot-Image
+Allow: /images/
+Disallow: /admin/
+
+# Haber / video botları
+User-agent: Googlebot-News
+Allow: /blog/
+
+# ======================================
+# Notlar:
+# - Admin veya kullanıcı hesap sayfaları arama sonuçlarına girmemelidir.
+# - Blog ve Hizmet sayfaları SEO açısından değerlidir, açık bırakıldı.
+# - CSS/JS/Lib dosyaları zaten layout ile yükleniyor, indekslenmeleri gereksizdir.
+# ======================================

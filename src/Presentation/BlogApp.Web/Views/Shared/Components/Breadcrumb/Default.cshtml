@@ -1,0 +1,120 @@
+﻿@model List<(string Name, string Url)>
+
+@if (Model != null && Model.Count > 1)
+{
+    <nav aria-label="Breadcrumb"
+         class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 sm:px-6 py-3">
+            <ol class="flex flex-wrap items-center gap-1.5 text-sm sm:text-base"
+                itemscope
+                itemtype="https://schema.org/BreadcrumbList">
+
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    var item = Model[i];
+                    var position = i + 1;
+                    var isLast = i == Model.Count - 1;
+                    var isFirst = i == 0;
+
+                    <li itemprop="itemListElement"
+                        itemscope
+                        itemtype="https://schema.org/ListItem"
+                        class="flex items-center flex-wrap">
+
+                        @if (!isLast)
+                        {
+                            <a itemprop="item"
+                               href="@item.Url"
+                               title="@item.Name"
+                               class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-medium
+                                                  bg-gray-100 dark:bg-gray-800
+                                                  text-gray-700 dark:text-gray-300
+                                                  hover:bg-primary hover:text-white dark:hover:bg-primary
+                                                  transition-all duration-200 shadow-sm hover:shadow-md
+                                                  max-w-[160px] sm:max-w-[200px] truncate">
+
+                                @if (isFirst)
+                                {
+                                    <svg class="w-3.5 h-3.5 flex-none" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                                    </svg>
+                                }
+
+                                <span itemprop="name" class="truncate">@item.Name</span>
+                                <meta itemprop="name" content="@item.Name" />
+                            </a>
+
+                            <meta itemprop="item" content="@item.Url" />
+                        }
+
+                        else
+                        {
+                            <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold
+                                                     bg-primary text-white shadow-md max-w-[160px] sm:max-w-[200px] truncate">
+                                <span itemprop="name" class="truncate">@item.Name</span>
+                                <meta itemprop="name" content="@item.Name" />
+                            </span>
+
+                            <meta itemprop="item" content="@item.Url" />
+                        }
+
+                        <meta itemprop="position" content="@position" />
+
+                        @if (!isLast)
+                        {
+                            <svg class="w-4 h-4 mx-1 text-gray-400 dark:text-gray-600 flex-none"
+                                 fill="currentColor"
+                                 viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                      clip-rule="evenodd" />
+                            </svg>
+                        }
+                    </li>
+                }
+            </ol>
+        </div>
+    </nav>
+}
+
+
+<style>
+    nav[aria-label="Breadcrumb"] {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', sans-serif;
+    }
+
+        nav[aria-label="Breadcrumb"] a:hover {
+            transform: translateY(-1px);
+        }
+
+        nav[aria-label="Breadcrumb"] a:active {
+            transform: translateY(0);
+        }
+
+    /* Mobilde taşmaları önle */
+    @@media (max-width: 640px) {
+        nav [aria-label="Breadcrumb"] ol
+
+    {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    nav[aria-label="Breadcrumb"] a,
+    nav[aria-label="Breadcrumb"] span {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.625rem;
+    }
+
+    nav[aria-label="Breadcrumb"] svg {
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+
+    }
+
+    nav[aria-label="Breadcrumb"] a:focus {
+        outline: 2px solid #003366;
+        outline-offset: 2px;
+    }
+</style>

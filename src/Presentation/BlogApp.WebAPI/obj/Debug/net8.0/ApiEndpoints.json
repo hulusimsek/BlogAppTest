@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "Program\u002B\u003C\u003Ec__DisplayClass0_0",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__8",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__7",
     "RelativePath": "",
     "HttpMethod": "GET",
     "IsController": false,
@@ -290,7 +290,7 @@
   },
   {
     "ContainingType": "Program\u002B\u003C\u003Ec__DisplayClass0_0",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__9",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__8",
     "RelativePath": "health",
     "HttpMethod": "GET",
     "IsController": false,

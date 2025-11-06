@@ -1,0 +1,93 @@
+﻿@using BlogApp.Web.ViewModels
+@model LayoutViewModel
+@{
+    ViewData["SiteName"] = Model?.SiteSettings?.SiteName;
+    ViewData["LogoUrl"] = Model?.SiteSettings?.LogoUrl;
+    var ctx = Context;
+}
+
+<header class="bg-white dark:bg-background-dark shadow-sm sticky top-0 z-50 role=" banner"">
+    <div class="container mx-auto px-6 py-4 relative flex items-center justify-between">
+        <!-- Sol: Logo -->
+        <a asp-controller="Home" asp-action="Index" class="flex items-center gap-2">
+
+            <img src="@Model?.SiteSettings?.LogoUrl"
+                 alt="@Model?.SiteSettings?.SiteName logosu"
+                 loading="eager"
+                 width="40"
+                 height="40"
+                 class="w-10 h-10 rounded-full" />
+            <div class="text-xl font-bold text-primary-dark dark:text-white">
+                @Model?.SiteSettings?.SiteName
+            </div>
+        </a>
+
+        <!-- Orta: Nav (ekran ortasında) -->
+        <nav class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2"
+             role="navigation"
+             aria-label="Ana menü">
+            <a class="@NavHelper.IsActive(ctx, "/", true)"
+               asp-controller="Home"
+               asp-action="Index"
+               aria-current="@(NavHelper.IsActive(ctx, "/", true).Contains("font-bold") ? "page" : "false")">
+                Ana Sayfa
+            </a>
+            <a class="@NavHelper.IsActive(ctx, "/hakkimizda")"
+               asp-controller="About"
+               asp-action="Index"
+               aria-current="@(NavHelper.IsActive(ctx, "/hakkimizda").Contains("font-bold") ? "page" : "false")">
+                Hakkımızda
+            </a>
+            <a class="@NavHelper.IsActive(ctx, "/hizmetler")"
+               asp-controller="Services"
+               asp-action="Index"
+               aria-current="@(NavHelper.IsActive(ctx, "/hizmetler").Contains("font-bold") ? "page" : "false")">
+                Hizmetlerimiz
+            </a>
+            <a class="@NavHelper.IsActive(ctx, "/blog")"
+               asp-controller="Blog"
+               asp-action="Index"
+               aria-current="@(NavHelper.IsActive(ctx, "/blog").Contains("font-bold") ? "page" : "false")">
+                Blog
+            </a>
+            <a class="@NavHelper.IsActive(ctx, "/iletisim", true)"
+               asp-controller="Contact"
+               asp-action="Index"
+               aria-current="@(NavHelper.IsActive(ctx, "/iletisim", true).Contains("font-bold") ? "page" : "false")">
+                İletişim
+            </a>
+        </nav>
+
+        <!-- Sağ: Randevu Butonu -->
+        @if (Model != null && Model.SiteSettings != null && Model.SiteSettings.ButtonIsActive)
+        {
+            <a href="@Model?.SiteSettings?.ButtonLink"
+               class="hidden md:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-primary-dark transition-colors"
+               aria-label="@Model?.SiteSettings?.ButtonAltText">
+                <span class="truncate">@Model?.SiteSettings?.ButtonText</span>
+            </a>
+        }
+
+
+        <!-- Mobil Menü Butonu -->
+        <button id="mobile-menu-button" class="md:hidden text-gray-700 dark:text-gray-300">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+
+    <!-- Mobil Menü Paneli (Animasyonlu) -->
+    <div id="mobile-menu" class="max-h-0 overflow-hidden opacity-0 transform scale-y-95 transition-all duration-300 ease-in-out md:hidden bg-white dark:bg-background-dark border-t border-gray-200 dark:border-gray-700" aria-hidden="true">
+        <nav class="container mx-auto px-6 py-4 flex flex-col gap-4 items-center justify-between" role="navigation"
+             aria-label="Mobil menü">
+            <a class="@NavHelper.IsActive(ctx, "/")" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+            <a class="@NavHelper.IsActive(ctx, "/hakkimizda")" asp-controller="About" asp-action="Index">Hakkımızda</a>
+            <a class="@NavHelper.IsActive(ctx, "/hizmetler")" asp-controller="Services" asp-action="Index">Hizmetlerimiz</a>
+            <a class="@NavHelper.IsActive(ctx, "/blog")" asp-controller="Blog" asp-action="Index">Blog</a>
+            <a class="@NavHelper.IsActive(ctx, "/contact")" asp-controller="Contact" asp-action="Index">İletişim</a>
+            <a asp-page="/online-danismanlik"
+               class="flex items-center justify-center rounded-md h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-primary-dark transition-colors">
+                <span>Randevu Al</span>
+            </a>
+        </nav>
+    </div>
+</header>

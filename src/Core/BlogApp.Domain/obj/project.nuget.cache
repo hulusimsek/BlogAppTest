@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TroY9LZghFM=",
+  "dgSpecHash": "hl2Iwp9aJ7o=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Core\\BlogApp.Domain\\BlogApp.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogAppProject\\src\\Core\\BlogApp.Domain\\BlogApp.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

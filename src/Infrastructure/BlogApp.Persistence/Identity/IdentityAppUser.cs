@@ -15,7 +15,7 @@ public class IdentityAppUser : IdentityUser<Guid>
     public DateTime? LastLoginDate { get; set; }
     public bool IsActive { get; set; }
 
-    public virtual ICollection<IdentityAppUserRole> UserRoles { get; set; } = new List<IdentityAppUserRole>();
+    public ICollection<IdentityAppUserRole> UserRoles { get; set; } = new List<IdentityAppUserRole>();
 
 
     public IdentityAppUser()

@@ -1,0 +1,131 @@
+﻿@using BlogApp.Application.DTOs.Tag
+@model BlogApp.Web.ViewModels.BlogViewModel
+
+@{
+    var metaTitle = !string.IsNullOrEmpty(Model?.Section?.MetaTitle) ? Model.Section.MetaTitle : "Etiketler";
+
+    var metaDescription = !string.IsNullOrEmpty(Model?.Section?.MetaDescription)
+                            ? Model.Section.MetaDescription : "Blog yazılarında kullanılan tüm etiketlerin sade listesi.";
+    ViewData["Title"] = metaTitle;
+    ViewData["MetaDescription"] = metaDescription;
+    ViewData["Robots"] = "index, follow";
+}
+
+<div class="max-w-[1200px] mx-auto px-4 py-6">
+    <!-- Sayfa başlığı -->
+    <div class="mb-4">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-1">
+            <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">@Model?.Section?.Title</h1>
+            <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                @Model?.Section?.TitleExplanation
+            </p>
+
+            @if (@Model?.Tags.Count() > 0)
+            {
+                <div class="mt-3 text-sm text-gray-600 dark:text-gray-400 mt-2">
+                    <span class="font-medium text-gray-900 dark:text-white">@Model?.Tags.Count()</span> @Model?.Section?.ButtonAltText
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 pt-2">
+        <!-- Ana içerik -->
+        <section class="lg:col-span-3 pt-2">
+            @if (Model?.Tags != null && Model.Tags.Any())
+            {
+                <div class="flex flex-wrap gap-2 sm:gap-3">
+                    @foreach (var tag in Model.Tags.OrderBy(t => t.Name))
+                    {
+                        <a asp-action="Tag"
+                           asp-route-slug="@tag.Slug"
+                           title="@($"{tag.Name} etiketli yazılar")"
+                           class="px-3 py-1.5 text-sm font-medium rounded-full border border-gray-300 dark:border-gray-600
+                                                  text-gray-700 dark:text-gray-200 hover:border-blue-500 hover:text-blue-600
+                                                  dark:hover:border-blue-400 dark:hover:text-blue-400 transition-colors">
+                            #@tag.Name
+                        </a>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-12 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <p class="text-gray-600 dark:text-gray-400">Henüz hiç etiket bulunmamaktadır.</p>
+                </div>
+            }
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="lg:col-span-1 space-y-6">
+            <!-- Popüler Yazılar -->
+            @if (Model?.PopularBlogPosts != null && Model.PopularBlogPosts.Any())
+            {
+                <div class="bg-white dark:bg-gray-800 px-5 pb-5 pt-2 rounded-lg shadow-sm text-center md:text-left border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Popüler Yazılar</h3>
+                    <ul class="space-y-2 text-sm">
+                        @foreach (var post in Model.PopularBlogPosts.Take(5))
+                        {
+                            <li>
+                                <a asp-action="Detail" asp-route-slug="@post.Slug"
+                                   class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                    @post.Title
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            <!-- Kategoriler -->
+            @if (Model?.Categories != null && Model.Categories.Any())
+            {
+                <div class="bg-white dark:bg-gray-800 px-5 pb-5 pt-2 rounded-lg shadow-sm text-center md:text-left border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Kategoriler</h3>
+                    <ul class="space-y-2 text-sm">
+                        @foreach (var category in Model.Categories)
+                        {
+                            var isActive = Model?.CurrentCategorySlug == category.Slug;
+                            <li>
+                                <a asp-action="Category" asp-route-slug="@category.Slug"
+                                   class="@(isActive ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400") transition-colors">
+                                    @category.Name
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </aside>
+    </div>
+</div>
+@section Scripts {
+    <script type="application/ld+json">
+        {
+          "@@context": "https://schema.org",
+          "@@type": "ItemList",
+          "name": "@Html.SafePlainText(Model?.Section?.MetaTitle ?? "Etiketler")",
+          "url": "@(Context.Request.Scheme)://@(Context.Request.Host)@(Context.Request.Path)",
+          "numberOfItems": @(Model?.Tags?.Count() ?? 0),
+          "itemListElement": [
+            @if (Model?.Tags != null && Model.Tags.Any())
+            {
+                    for (int i = 0; i < Model.Tags.Count(); i++)
+                    {
+                            var tag = Model.Tags.ElementAt(i);
+                            <text>{
+                                "@@type": "ListItem",
+                                "position": @(i + 1),
+                                "url": "@(Context.Request.Scheme)://@(Context.Request.Host)/blog/tag/@tag.Slug",
+                                "id": "@(Context.Request.Scheme)://@(Context.Request.Host)/blog/tag/@tag.Slug",
+                                "name": "@Html.SafePlainText(tag.Slug)"
+                            }</text>
+                            @(i < Model.Tags.Count() - 1 ? "," : "")
+                    }
+            }
+          ]
+        }
+    </script>
+}

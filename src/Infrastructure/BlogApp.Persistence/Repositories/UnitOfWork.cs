@@ -33,9 +33,9 @@ public class UnitOfWork : IUnitOfWork
     public IUserRepository Users { get; private set; }
     public IRoleRepository Roles { get; private set; }
 
-    public async Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
     {
-        return await _context.SaveChangesAsync();
+        return await _context.SaveChangesAsync(cancellationToken);
     }
 
     public async Task BeginTransactionAsync()

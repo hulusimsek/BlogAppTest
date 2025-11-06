@@ -1,16 +1,19 @@
+using BlogApp.Application.Configuration;
+using BlogApp.Application.Interfaces;
+using BlogApp.Application.Mappings;
+using BlogApp.Domain.Repositories;
+using BlogApp.Infrastructure.DependencyInjection;
+using BlogApp.Persistence.Data;
+using BlogApp.Persistence.DependencyInjection;
+using BlogApp.Persistence.Identity;
+using BlogApp.Persistence.Repositories;
+using BlogApp.Persistence.Seed;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using BlogApp.Application.Interfaces;
-using BlogApp.Application.Mappings;
-using BlogApp.Domain.Repositories;
-using BlogApp.Persistence.Data;
-using BlogApp.Persistence.Identity;
-using BlogApp.Persistence.Repositories;
-using BlogApp.Infrastructure.DependencyInjection;
 using System.Reflection;
 using System.Text;
 
@@ -49,20 +52,13 @@ builder.Services.AddIdentity<IdentityAppUser, BlogApp.Persistence.Identity.Ident
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
-// MediatR
-builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssembly(Assembly.Load("BlogApp.Application")));
+// Application
+builder.Services.AddApplicationServices();
 
-// AutoMapper
-builder.Services.AddAutoMapper(typeof(MappingProfile), typeof(BlogApp.Persistence.Mappings.UserMappingProfile));
+// Persistence
+builder.Services.AddPersistenceServices();
 
-// FluentValidation
-builder.Services.AddValidatorsFromAssembly(Assembly.Load("BlogApp.Application"));
 
-// Repository pattern
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IRoleRepository, RoleRepository>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Application services
 builder.Services.AddInfrastructureServices();
@@ -229,6 +225,10 @@ using (var scope = app.Services.CreateScope())
     {
         var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
         await context.Database.MigrateAsync();
+
+        // Data seeding
+        await DataSeeder.SeedAsync(context);
+
 
         // Role seeding
         var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<BlogApp.Persistence.Identity.IdentityAppRole>>();

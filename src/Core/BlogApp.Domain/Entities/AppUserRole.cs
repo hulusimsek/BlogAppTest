@@ -10,8 +10,8 @@ public class AppUserRole
     public DateTime AssignedDate { get; private set; }
 
     // Navigation properties
-    public virtual AppUser User { get; private set; } = null!;
-    public virtual AppRole Role { get; private set; } = null!;
+    public AppUser User { get; private set; } = null!;
+    public AppRole Role { get; private set; } = null!;
 
     // Private constructor for EF Core
     private AppUserRole() { }

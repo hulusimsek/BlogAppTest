@@ -1,0 +1,197 @@
+﻿@model BlogApp.Web.ViewModels.ServicesViewModel
+
+@{
+    ViewData["Title"] = Model.Section?.MetaTitle ?? Model.Section?.Title ?? "";
+
+    var pageTitle = Model.Section?.MetaTitle ?? Model.Section?.Title ?? "";
+    ViewData["Title"] = pageTitle;
+
+    ViewData["MetaDescription"] = Model.Section?.MetaDescription ?? Model.Section?.TitleExplanation ?? "";
+    ViewData["MetaKeywords"] = Model.Section?.MetaKeywords ?? "";
+    ViewData["Robots"] = "index, follow";
+
+    ViewData["Breadcrumb"] = @"
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'>
+            <a itemprop='item' href='/' class='text-gray-600 hover:text-primary'>
+                <span itemprop='name'>Ana Sayfa</span>
+            </a>
+            <meta itemprop='position' content='1' />
+        </li>
+        <li class='text-gray-400'>/</li>
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'>
+            <span itemprop='name' class='text-primary font-semibold'>Hizmetlerimiz</span>
+            <meta itemprop='position' content='2' />
+        </li>
+    ";
+}
+
+<!-- Hero Section -->
+<section class="bg-white dark:bg-neutral-dark" aria-labelledby="page-title">
+    <div class="container mx-auto px-6 py-16 text-center">
+        <h1 id="page-title" class="text-4xl md:text-5xl font-bold text-primary-dark dark:text-white tracking-tight">
+            @(Model.Section?.Title ?? "")
+        </h1>
+        <p class="mt-4 text-lg text-text-light dark:text-text-dark">
+            @(Model.Section?.TitleExplanation ?? "")
+        </p>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-16 md:py-24 bg-background-light dark:bg-background-dark"
+         aria-labelledby="services-heading"
+         itemscope
+         itemtype="https://schema.org/ItemList">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-primary-dark dark:text-white">
+                @(Model.Section?.Subtitle ?? "")
+            </h2>
+
+            @if (!string.IsNullOrEmpty(Model.Section?.Content))
+            {
+                <p class="mt-4 max-w-2xl mx-auto text-text-light dark:text-text-dark">
+                    @Model.Section.Content
+                </p>
+            }
+        </div>
+
+        @if (Model.ServiceCategories != null && Model.ServiceCategories.Any())
+        {
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                @{
+                    int position = 1;
+                }
+                @foreach (var service in Model.ServiceCategories.Where(s => s.IsActive).OrderBy(s => s.DisplayOrder))
+                {
+                    <article class="bg-white dark:bg-neutral-dark rounded-lg shadow-md p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                             itemprop="itemListElement"
+                             itemscope
+                             itemtype="https://schema.org/ListItem">
+
+                        <!-- Schema için hidden meta -->
+                        <meta itemprop="position" content="@position" />
+
+                        <div itemprop="item" itemscope itemtype="https://schema.org/Service" class="w-full flex flex-col items-center">
+                            <!-- URL -->
+                            <link itemprop="url" href="@Url.Action("Detail", "Services", new { slug = service.Slug })" />
+
+                            <!-- Icon -->
+                            <div class="p-4 rounded-full bg-primary/10 text-primary mb-4" aria-hidden="true">
+                                <div class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-xl p-2.5">
+                                    <img src="@service.IconName"
+                                         width="56"
+                                         height="56"
+                                         loading="lazy"
+                                         alt=""
+                                         class="w-full h-full object-contain"
+                                         itemprop="image" />
+                                </div>
+                            </div>
+
+                            <!-- Service Name -->
+                            <h3 class="text-xl font-bold text-primary-dark dark:text-white mb-2" itemprop="name">
+                                @service.Name
+                            </h3>
+
+                            <!-- Service Description -->
+                            <p class="text-text-light dark:text-text-dark text-sm mb-4" itemprop="description">
+                                @service.ShortDescription
+                            </p>
+
+                            <!-- CTA Link -->
+                            <a href="@Url.Action("Detail", "Services", new { slug = service.Slug })"
+                               class="text-primary dark:text-white font-semibold text-sm hover:underline"
+                               aria-label="@service.Name hakkında detaylı bilgi al">
+                                Detaylı Bilgi →
+                            </a> 
+
+                            <!-- Service Type -->
+                            <meta itemprop="serviceType" content="@service.Name" />
+                        </div>
+                    </article>
+                    position++;
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-12">
+                <p class="text-text-light dark:text-text-dark">
+                    Şu anda görüntülenecek hizmet bulunmamaktadır.
+                </p>
+            </div>
+        }
+    </div>
+</section>
+
+<!-- CTA Section -->
+@if (!(String.IsNullOrEmpty(Model.Section?.AlternativeTitle)
+        && String.IsNullOrEmpty(Model.Section?.AlternativeTitleExplanation)
+        && (String.IsNullOrEmpty(Model.Section?.ButtonText) || !Model.Section.ButtonIsActive)))
+{
+    <section class="bg-white dark:bg-neutral-dark" aria-labelledby="cta-heading">
+        <div class="container mx-auto px-6 pt-8 pb-4 text-center">
+            @if (!string.IsNullOrEmpty(Model.Section?.AlternativeTitle))
+            {
+                <h2 id="cta-heading" class="text-3xl font-bold text-primary-dark dark:text-white">
+                    @(Model.Section.AlternativeTitle)
+                </h2>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.Section?.AlternativeTitleExplanation))
+            {
+                <p class="mt-4 text-lg text-text-light dark:text-text-dark max-w-xl mx-auto">
+                    @(Model.Section.AlternativeTitleExplanation)
+                </p>
+            }
+
+            @if (Model.Section?.ButtonIsActive == true && !string.IsNullOrEmpty(Model.Section.ButtonText))
+            {
+                <a href="@(Model.Section.ButtonLink ?? "/iletisim")"
+                   class="mt-8 inline-flex items-center justify-center min-w-[84px] cursor-pointer overflow-hidden rounded-md h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:bg-primary-dark transition-colors"
+                   aria-label="@Model.Section.ButtonText">
+                    <span class="truncate">@Model.Section.ButtonText</span>
+                </a>
+            }
+        </div>
+    </section>
+}
+
+@section Scripts {
+    <script type="application/ld+json">
+        {
+          "@@context": "https://schema.org",
+          "@@type": "OfferCatalog",
+          "name": "Hizmetler",
+          "url": "@(Context.Request.Scheme)://@(Context.Request.Host)@(Context.Request.Path)",
+          "description": "@(Model.Section?.MetaDescription ?? Model.Section?.TitleExplanation ?? "Hukuk büromuz tarafından sunulan hizmetler listesi.")",
+          "itemListElement": [
+            @if (Model.ServiceCategories != null && Model.ServiceCategories.Any())
+            {
+                                    var activeServices = Model.ServiceCategories.Where(s => s.IsActive).OrderBy(s => s.DisplayOrder).ToList();
+                                    for (int i = 0; i < activeServices.Count; i++)
+                                    {
+                                                            var service = activeServices[i];
+                                                            <text>{
+                                                                  "@@type": "Offer",
+                                                                  "@@id": "@(Context.Request.Scheme)://@(Context.Request.Host)/hizmetler/@service.Slug#offer",
+                                                                  "name": "@Html.SafePlainText(@service.Name)",
+                                                                  "itemOffered": {
+                                                                      "@@type": "Service",
+                                                                      "name": "@Html.SafePlainText(service.Name)",
+                                                                              "description": "@Html.SafePlainText(service.ShortDescription))",
+                                                                      "url": "@(Context.Request.Scheme)://@(Context.Request.Host)/hizmetler/@service.Slug"
+                                                                        }
+                                                            }</text>
+
+                                                            if (i < activeServices.Count - 1)
+                                                            {
+                                                                                    <text>,</text>
+                                                            }
+                                    }
+            }
+          ]
+        }
+    </script>
+}

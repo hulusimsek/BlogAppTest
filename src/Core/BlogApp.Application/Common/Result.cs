@@ -1,12 +1,22 @@
+
 namespace BlogApp.Application.Common;
 
 /// <summary>
 /// Result pattern implementation for consistent response handling
 /// </summary>
-public class Result<T>
+/// 
+public interface AppResult
+{
+    public bool IsSuccess { get; }
+    public string? ErrorMessage { get; }
+    public List<string> Errors { get; }
+}
+
+public class Result<T> : AppResult
 {
     public bool IsSuccess { get; private set; }
     public T? Data { get; private set; }
+    public int TotalCount { get; set; }
     public string? ErrorMessage { get; private set; }
     public List<string> Errors { get; private set; } = new();
 
@@ -34,7 +44,7 @@ public class Result<T>
     }
 }
 
-public class Result
+public class Result : AppResult
 {
     public bool IsSuccess { get; private set; }
     public string? ErrorMessage { get; private set; }
@@ -60,5 +70,10 @@ public class Result
     public static Result Failure(List<string> errors)
     {
         return new Result(false, null, errors);
+    }
+
+    internal static Result Failure()
+    {
+        throw new NotImplementedException();
     }
 }

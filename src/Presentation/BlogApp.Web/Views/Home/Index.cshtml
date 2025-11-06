@@ -1,0 +1,409 @@
+﻿@model BlogApp.Web.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = Model.Section?.MetaTitle ?? "Ana Sayfa";
+    ViewData["MetaDescription"] = Model.Section?.MetaDescription;
+    ViewData["MetaKeywords"] = Model.Section?.MetaKeywords;
+    ViewData["Robots"] = "index, follow";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+            .service-card:hover {
+                transform: translateY(-8px);
+            }
+
+        .slider-container {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .slider-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .slider-nav-button:hover:not(:disabled) {
+                background: #003366;
+                box-shadow: 0 6px 20px rgba(0, 51, 102, 0.3);
+            }
+
+                .slider-nav-button:hover:not(:disabled) .material-symbols-outlined {
+                    color: white;
+                }
+
+            .slider-nav-button:disabled {
+                opacity: 0.3;
+                cursor: not-allowed;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .slider-nav-button.prev {
+                left: -24px;
+            }
+
+            .slider-nav-button.next {
+                right: -24px;
+            }
+
+        @@media (max-width: 640px) {
+            .slider-nav-button {
+                width: 40px;
+                height: 40px;
+            }
+
+                .slider-nav-button.prev {
+                    left: -12px;
+                }
+
+                .slider-nav-button.next {
+                    right: -12px;
+                }
+        }
+
+        .dark .slider-nav-button {
+            background: #1f2937;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+            .dark .slider-nav-button:hover:not(:disabled) {
+                background: #374151;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            height: 100%;
+        }
+
+    </style>
+}
+
+<!-- Hero Section -->
+<section class="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 flex justify-center py-4 sm:py-5 bg-white dark:bg-background-dark" aria-label="Ana banner">
+    <div class="w-full max-w-[960px]">
+        <div class="w-full">
+            <div class="sm:p-4">
+                @if (Model.Section != null)
+                {
+                    <div class="flex min-h-[300px] sm:min-h-[400px] md:min-h-[480px] flex-col gap-4 sm:gap-6 md:gap-8 bg-cover bg-center bg-no-repeat rounded-lg items-center justify-center p-6 sm:p-8 md:p-12"
+                         style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('@Model.Section.BackgroundImageUrl');"
+                         role="img"
+                         aria-label="@Model.Section.BackgroundAltText">
+                        <!-- SEO için görünmeyen img -->
+                        <img src="@Model.Section.BackgroundImageUrl"
+                             alt="@Model.Section.BackgroundAltText"
+                             loading="eager"
+                             width="1200"
+                             height="480"
+                             class="sr-only" />
+                        <div class="flex flex-col gap-2 sm:gap-3 text-center w-full max-w-4xl">
+                            <h1 class="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.033em]" style="line-height: 1.2;">
+                                @Model.Section.Title
+                            </h1>
+                            <p class="text-gray-100 text-sm sm:text-base md:text-lg font-normal leading-normal px-4">
+                                @Model.Section.Subtitle
+                            </p>
+                        </div>
+                        @if (Model.Section.ButtonIsActive && !string.IsNullOrEmpty(Model.Section.ButtonText))
+                        {
+                            <a href="@Model.Section.ButtonLink"
+                               class="inline-flex w-auto max-w-[85%] cursor-pointer items-center justify-center rounded-lg h-auto min-h-[40px] sm:min-h-[48px] px-3 sm:px-6 bg-white text-primary text-xs sm:text-sm font-bold leading-tight text-center hover:bg-gray-100 hover:shadow-lg transition-all duration-300 break-words whitespace-normal"
+                               aria-label="@Model.Section.ButtonText">
+                                <span class="block px-1 text-center">@Model.Section.ButtonText</span>
+                            </a>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About & Services Section -->
+<section class="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 flex justify-center py-5 sm:py-8 bg-background-light dark:bg-[#00152b]"
+         aria-labelledby="services-heading">
+    <div class="w-full max-w-[960px]">
+        @if (!string.IsNullOrEmpty(Model.Section?.Content))
+        {
+            <p class="text-center text-[#111318] dark:text-gray-300 px-4 sm:px-6 py-6 sm:py-8 text-sm sm:text-base leading-relaxed">
+                @Model.Section.Content
+            </p>
+        }
+
+        <div class="px-4 sm:px-6 pb-4 pt-5">
+            <h2 id="services-heading" class="text-[#111318] dark:text-white text-lg sm:text-xl md:text-[22px] font-bold leading-tight tracking-[-0.015em]">
+                Hizmet Alanlarımız
+            </h2>
+        </div>
+
+        <div class="relative px-4 sm:px-6 md:px-10 lg:px-12">
+            <button id="prevBtn" class="slider-nav-button prev" aria-label="Önceki hizmetler">
+                <span class="material-symbols-outlined text-[#003366] dark:text-white" style="font-size: 28px">chevron_left</span>
+            </button>
+
+            <button id="nextBtn" class="slider-nav-button next" aria-label="Sonraki hizmetler">
+                <span class="material-symbols-outlined text-[#003366] dark:text-white" style="font-size: 28px">chevron_right</span>
+            </button>
+
+            <div class="overflow-hidden slider-container" aria-live="polite">
+                <div id="servicesSlider" class="flex gap-3 sm:gap-4 transition-transform duration-500 ease-out px-1">
+                    @foreach (var category in Model.ServiceCategories.Where(c => c.IsActive).OrderBy(c => c.DisplayOrder))
+                    {
+                        <article class="service-card flex-shrink-0 w-full sm:w-[calc(50%-6px)] md:w-[calc(33.333%-11px)] lg:w-[calc(25%-12px)] min-w-[200px]"
+                                 itemscope
+                                 itemtype="https://schema.org/Service">
+
+                            <a asp-controller="Services" asp-action="Detail" asp-route-slug="@category.Slug"
+                               class="service-card-link block w-full h-full rounded-xl border-2 border-[#e5e7eb] dark:border-gray-700 bg-white dark:bg-background-dark hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+
+                                <div class="flex flex-col gap-3 p-4 sm:p-5 text-center items-center h-full">
+                                    <div class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 rounded-xl p-2.5">
+                                        <img src="@category.IconName" alt="@category.Name icon" class="w-full h-full object-contain" />
+                                    </div>
+                                    <div class="flex flex-col gap-1.5 h-full justify-between flex-1">
+                                        <h3 class="text-[#111318] dark:text-white text-sm sm:text-base font-bold leading-tight">
+                                            @category.Name
+                                        </h3>
+                                        <p class="text-[#616f89] dark:text-gray-400 text-xs sm:text-sm font-normal leading-normal line-clamp-2">
+                                            @category.ShortDescription
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    }
+                </div>
+            </div>
+
+            <!-- Slider Progress Indicator -->
+            <div id="sliderIndicator" class="flex justify-center gap-1.5 mt-6" role="tablist" aria-label="Hizmet sayfaları"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Blog Posts Section with Microdata -->
+<!-- Latest Blog Posts Section -->
+@if (Model.LatestBlogPosts != null && Model.LatestBlogPosts.Any())
+{
+    <section class="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 flex justify-center py-5 sm:py-8 bg-white dark:bg-background-dark"
+             aria-labelledby="blog-heading"
+             itemscope
+             itemtype="https://schema.org/Blog">
+        <div class="w-full max-w-[960px]">
+            <h2 id="blog-heading" class="text-[#111318] dark:text-white text-lg sm:text-xl md:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 sm:px-6 pb-3 pt-5" itemprop="name">
+                Son Makaleler
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 p-4 sm:p-6">
+                @foreach (var post in Model.LatestBlogPosts)
+                {
+                    <article class="flex flex-col h-full p-3 group bg-white dark:bg-gray-900 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                             itemprop="blogPost"
+                             itemscope
+                             itemtype="https://schema.org/BlogPosting">
+                        <a href="@Url.Action("Detail", "Blog", new { slug = post.Slug })"
+                           itemprop="url" aria-label="@post.Title makalesini oku">
+                            <div class="w-full aspect-video bg-center bg-no-repeat bg-contain rounded-lg overflow-hidden shadow-sm group-hover:shadow-md transition-shadow bg-gray-100"
+                                 style="background-image: url('@(post.FeaturedImageUrl ?? "/images/default-blog.jpg")');">
+                                <img src="@(post.FeaturedImageUrl ?? "/images/default-blog.jpg")"
+                                     alt="@post.Title görseli"
+                                     width="400"
+                                     height="225"
+                                     loading="lazy"
+                                     class="sr-only"
+                                     itemprop="image" />
+                            </div>
+                        </a>
+
+                        <div class="flex flex-col flex-grow mt-3">
+                            <a href="@Url.Action("Detail", "Blog", new { slug = post.Slug })">
+                                <h3 class="text-[#111318] dark:text-white text-sm sm:text-base font-bold leading-snug group-hover:text-primary dark:group-hover:text-blue-400 transition-colors line-clamp-2"
+                                    style="height: 2.8em;"
+                                    itemprop="headline">
+                                    @post.Title
+                                </h3>
+                            </a>
+                            <p class="text-[#616f89] dark:text-gray-400 text-xs sm:text-sm font-normal leading-snug mt-2 line-clamp-3"
+                               style="height: 4.2em;"
+                               itemprop="description">
+                                @post.Summary
+                            </p>
+                            <div class="mt-auto pt-3">
+                                @if (post.PublishDate.HasValue)
+                                {
+                                    <meta itemprop="datePublished" content="@post.PublishDate.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")" />
+                                    <time datetime="@post.PublishDate.Value.ToString("yyyy-MM-ddTHH:mm:ssZ")" class="text-[#616f89] dark:text-gray-400 text-xs mt-2 block">
+                                        @post.PublishDate.Value.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("tr-TR"))
+                                    </time>
+                                }
+
+                                <!-- Author Information -->
+                                @if (!string.IsNullOrEmpty(post.AuthorName))
+                                {
+                                    <div itemprop="author" itemscope itemtype="https://schema.org/Person" class="mt-2">
+                                        <span itemprop="name" class="text-[#616f89] dark:text-gray-400 text-xs sm:text-sm">
+                                            @post.AuthorName
+                                        </span>
+                                        <a itemprop="url" href="@Url.Action("Index", "About")" class="sr-only">
+                                            Profil Sayfası
+                                        </a>
+                                    </div>
+                                }
+                                <a href="@Url.Action("Detail", "Blog", new { slug = post.Slug })"
+                                   class="text-primary dark:text-blue-400 text-xs sm:text-sm font-bold leading-normal mt-2 inline-block group-hover:underline"
+                                   itemprop="mainEntityOfPage"
+                                   aria-label="@post.Title makalesinin devamını oku">
+                                    Devamını Oku →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                }
+            </div>
+
+            <div class="flex justify-center mt-4 sm:mt-6 px-4">
+                <a href="@Url.Action("Index", "Blog")"
+                   class="text-primary dark:text-blue-400 text-sm sm:text-base font-bold hover:underline transition-all"
+                   aria-label="Tüm blog makalelerini görüntüle">
+                    Tüm Makaleleri Gör →
+                </a>
+            </div>
+        </div>
+    </section>
+}
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('servicesSlider');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicator = document.getElementById('sliderIndicator');
+
+            if (!slider || !prevBtn || !nextBtn) return;
+
+            const items = slider.children;
+            const totalItems = items.length;
+            let currentIndex = 0;
+
+            function getVisibleItems() {
+                const width = window.innerWidth;
+                if (width < 640) return 1;      // mobile
+                if (width < 768) return 2;      // sm
+                if (width < 1024) return 3;     // md
+                return 4;                        // lg+
+            }
+
+            function updateIndicator() {
+                const visibleItems = getVisibleItems();
+                const totalPages = Math.ceil(totalItems / visibleItems);
+                const currentPage = Math.floor(currentIndex / visibleItems);
+
+                indicator.innerHTML = '';
+                for (let i = 0; i < totalPages; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = `h-2 rounded-full transition-all duration-300 ${
+                        i === currentPage
+                            ? 'w-8 bg-primary dark:bg-blue-400'
+                            : 'w-2 bg-gray-300 dark:bg-gray-600'
+                    }`;
+                    indicator.appendChild(dot);
+                }
+            }
+
+            function updateSlider() {
+                const visibleItems = getVisibleItems();
+                const itemWidth = items[0].offsetWidth;
+                const gap = window.innerWidth < 640 ? 12 : 16;
+                const offset = -(currentIndex * (itemWidth + gap));
+                slider.style.transform = `translateX(${offset}px)`;
+
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= totalItems - visibleItems;
+
+                updateIndicator();
+            }
+
+            prevBtn.addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
+            });
+
+            nextBtn.addEventListener('click', function() {
+                const visibleItems = getVisibleItems();
+                if (currentIndex < totalItems - visibleItems) {
+                    currentIndex++;
+                    updateSlider();
+                }
+            });
+
+            // Touch/Swipe desteği
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            slider.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            slider.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                if (touchStartX - touchEndX > swipeThreshold) {
+                    nextBtn.click();
+                } else if (touchEndX - touchStartX > swipeThreshold) {
+                    prevBtn.click();
+                }
+            }
+
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    const visibleItems = getVisibleItems();
+                    if (currentIndex >= totalItems - visibleItems) {
+                        currentIndex = Math.max(0, totalItems - visibleItems);
+                    }
+                    updateSlider();
+                }, 250);
+            });
+
+            updateSlider();
+        });
+    </script>
+}

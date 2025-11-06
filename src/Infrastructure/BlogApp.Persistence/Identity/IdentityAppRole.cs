@@ -10,7 +10,7 @@ public class IdentityAppRole : IdentityRole<Guid>
     public string Description { get; set; } = string.Empty;
     public DateTime CreatedDate { get; set; }
 
-    public virtual ICollection<IdentityAppUserRole> UserRoles { get; set; } = new List<IdentityAppUserRole>();
+    public ICollection<IdentityAppUserRole> UserRoles { get; set; } = new List<IdentityAppUserRole>();
 
 
     public IdentityAppRole()
