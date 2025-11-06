@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pGCmcXxxGGU=",
+  "dgSpecHash": "xJsWuuPqoRI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hulusi\\Desktop\\BlogApp\\BlogAppProject\\src\\Infrastructure\\BlogApp.Infrastructure\\BlogApp.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Hulusi\\Desktop\\BlogAppTest\\src\\Infrastructure\\BlogApp.Infrastructure\\BlogApp.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hulusi\\.nuget\\packages\\automapper\\15.0.1\\automapper.15.0.1.nupkg.sha512",
     "C:\\Users\\Hulusi\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
